@@ -1,0 +1,71 @@
+.tremulaContainer{-moz-perspective:1000px; -webkit-perspective:1000;
+perspective:1000; overflow:hidden}.gridBox{background:#fafafa url() no-repeat
+center center; box-shadow:1px 0 5px rgba(0,0,0,0.2);
+position:absolute;}.gridBox.loaded{background-image:none}.gridBox.isLastContentBlock{border:
+none;background: none;box-shadow: none;}.moneyShot{pointer-events:none;
+position:absolute; top:0; right:0; opacity:0; -webkit-transition:opacity 900ms;
+-moz-transition:opacity 900ms; -o-transition:opacity 900ms; transition:opacity
+900ms; -webkit-transform:scale3d(1, 1, 1); -moz-transform:scale3d(1, 1, 1);
+-ms-transform:scale3d(1, 1, 1); -o-transform:scale3d(1, 1, 1);
+transform:scale3d(1, 1, 1)}.moneyShot.loaded{opacity:1}.boxLabel {position:
+absolute; bottom: -35px; padding: 0.3em; width: calc(100% - 15px); white-space:
+nowrap; overflow: hidden; text-overflow: ellipsis; left: -1px; font-size: 15px;}
+
+*{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.plug{padding:15px 20px;position:absolute;}
+.cta{
+  font-size:25px;
+  color:#666;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  line-height:40px;
+  }
+
+/* === Tremula Styles === */
+
+/* Note: any gridBox border added must be compensated for by adding negative margin */
+.gridBox{
+  border:#fff 10px solid;
+  margin: -10px 0 0 -10px;
+  -webkit-box-reflect : below -10px -webkit-gradient(
+    linear, left bottom, left top,
+    from(rgba(255,255,255,0.1)),
+    color-stop(0.3, transparent)
+  );
+}
+
+.moneyShot{
+  width:100%;
+}
+
+/* .tremulaContainer must have actual dimentionality (set H&W) */
+.tremulaContainer{
+  height:calc(100% - 140px);
+  width:100%;
+  position:relative;
+  top:0;
+  left:0;
+  z-index: 1;
+  margin: 140px auto 0 auto;
+}
+
+.pageLayoutContainer{
+  height:100%;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  margin:0;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Wed.is Wall</title>
+
+    <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+  </head>
+
+  <body>
+    <h1><img src="/img/wedis.png" alt="wedis" width="302" height="79"> <span class="x">x</span> <img src="/img/arena.png" alt="arena" width="250"> </h1>
+
+    <div class="containerBox">
+      <p>
+        <img src="/img/instagram.png" alt="instagram-icon" class="insta">
+        <span class="hashtag">#wedisatarena</span> to instagram photos to this wall.
+      </p>
+
+      <p>
+        Add <span class="hashtag">#selfie</span> if you're feeling adventurous.
+      </p>
+    </div>
+
+
+    <div class="pageLayoutContainer">
+      <div class="tremulaContainer"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/vendor/jquery.js"></script>
+    <script src="/vendor/hammer.js"></script>
+    <script src="/vendor/bezier.js"></script>
+    <script src="/vendor/tremula.js"></script>
+    <script src="/script.js"></script>
+
+    <script>
+      window.wall = io.connect('/wall');
+
+      var user = {};
+
+      wall.on('connect', function() {
+        console.log('Client connected');
+        console.log('Asking for new photos');
+        wall.emit('new photos please', user);
+      });
+
+      wall.on('new photo alert', function() {
+        console.log('New photo alert');
+        console.log('Asking for new photos');
+        wall.emit('new photos please', user);
+      });
+
+      wall.on('new photos', function(data) {
+        console.log('Got new photos');
+        user = data.user;
+        loadPhotos(data.photos);
+      });
+    </script>
+
+  </body>
+</html>
