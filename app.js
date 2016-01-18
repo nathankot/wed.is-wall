@@ -2,8 +2,12 @@
 
 'use strict';
 
+var config = {
+  INSTAGRAM_SUBSCRIPTION_CALLBACK_SECRET: "",
+  INSTAGRAM_CLIENT_ID: ""
+}
+
 var request = require('request');
-var config = require('config').App;
 var express = require('express');
 var _ = require('lodash');
 var Q = require('q');
@@ -15,7 +19,6 @@ module.exports = function(io, app) {
   var wall = (io || socketio).of('/wall');
 
   app.use(express.static(__dirname + '/public'));
-  app.use(require('compression')());
   app.use(require('body-parser').json({ limit: '2mb' }));
   app.use(require('body-parser').urlencoded({ extended: true, limit: '100kb' }));
 
